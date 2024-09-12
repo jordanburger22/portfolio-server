@@ -1,4 +1,5 @@
 const {expressjwt} = require('express-jwt')
+const User = require('../models/user')
 
 
 
@@ -7,7 +8,7 @@ const verifyToken = expressjwt({secret: process.env.BLACKPINE_SECRET, algorithms
 const checkAdminRole = async (req, res, next) => {
     try {
       // Extract the user ID from the token
-      const userId = req.user.id;
+      const userId = req.auth._id;
       if (!userId) return res.status(403).send('Access denied.');
   
       // Fetch the user from the database
