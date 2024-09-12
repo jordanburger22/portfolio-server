@@ -76,5 +76,5 @@ module.exports = {
     signup,
     login,
     googleLogin,
-    facebookLogin
+    // facebookLogin
 };
