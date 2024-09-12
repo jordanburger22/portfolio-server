@@ -3,10 +3,6 @@ const Schema = mongoose.Schema;
 const bcrypt = require('bcrypt');
 
 const userSchema = new Schema({
-    username: {
-        type: String,
-        unique: true // Ensure unique usernames
-    },
     password: {
         type: String,
         // Required only if not using OAuth
