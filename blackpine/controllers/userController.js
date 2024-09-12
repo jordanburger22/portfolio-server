@@ -13,7 +13,7 @@ const signup = async (req, res, next) => {
             return res.status(400).json({ message: 'Email is already in use' });
         }
 
-        const newUser = new User({ username, password, email });
+        const newUser = new User(req.body);
         await newUser.save();
         const token = jwt.sign(newUser.withoutPassword(), process.env.BLACKPINE_SECRET);
         return res.status(201).send({ token, user: newUser.withoutPassword() });
